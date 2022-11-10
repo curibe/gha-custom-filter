@@ -1,2 +1,4 @@
 first line in file 2
 line 2 in file 2
+line 3 in file 2
+
