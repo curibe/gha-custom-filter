@@ -1,0 +1,25 @@
+name: filter by jobs
+on: 
+  push:
+    branches: ["main"]
+  
+  pull_request:
+    branches: ["main"]
+
+jobs:
+
+  showinfo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show message 
+        run: echo "Hello everyone!"
+      - name: show commit message
+        run: echo "commit - ${{github.event.head_commit.message}}"
+
+  testing:
+    if: "!contains(github.event.head_commit.message, '[doc]')"
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: test stuff 
+        run: echo "Simulating tests"
